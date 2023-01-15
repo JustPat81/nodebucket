@@ -5,6 +5,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const EmployeeAPI = require('./routes/employee-api');
+const config = require('./data/config.json');
 
 const app = express(); // Express variable.
 
@@ -19,16 +20,29 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 // default server port value.
 const PORT = process.env.PORT || 3000;
 
-const CONN = 'mongodb+srv://nodebucket_user:s3cret@buwebdev-cluster-1.tq1o4.mongodb.net/nodebucket?retryWrites=true&w=majority';
+const CONN = config.dbConn
 
 /**
  * Database connection.
  */
-mongoose.connect(CONN).then(() => {
-  console.log('Connection to the database was successful');
-}).catch(err => {
-  console.log('MongoDB Error: ' + err.message);
-});
+mongoose.set('strictQuery', false);
+
+mongoose.connect(CONN).then(
+  () => {
+    console.log('Connection to the database was successful');
+  },
+  err => {
+    console.log(config.mongoServerError + ': ' + err.message);
+  }
+)
+
+mongoose.connection.on('error', err => {
+  console.log(config.mongoServerError + ': ' + err.message);
+})
+
+mongoose.connection.on('disconnected', () => {
+  console.log('Server disconnected from host (MongoDB Atlas).');
+})
 
 /**
  * APIS go here

@@ -1,4 +1,6 @@
+const { RouteConfigLoadEnd } = require('@angular/router');
 const express = require('express');
+const { config } = require('rxjs');
 const Employee = require('../models/employee');
 
 const router = express.Router();
@@ -36,7 +38,7 @@ router.get('/:empId', async(req, res) => {
   catch(e) {
     console.log(e);
     res.status(500).send({
-      'err': 'Internal server error!'
+      'err': config.serverError + ': ' + e.message
     })
   }
 })
