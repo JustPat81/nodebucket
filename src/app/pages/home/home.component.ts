@@ -1,3 +1,9 @@
+// Title:  home.component.ts
+// Author: Prof. Krassp
+// Date:   15 January 2023
+// Modified By: Patrick Wolff
+// Attribution: WEB450 Live Session
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

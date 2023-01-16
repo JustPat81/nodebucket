@@ -1,3 +1,9 @@
+// Title: app.module.ts
+// Author: Prof. Krasso
+// Date: 15 January 2023
+// Modified By: Patrick Wolff
+// Attribution: WEB450 Live Meetings
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 

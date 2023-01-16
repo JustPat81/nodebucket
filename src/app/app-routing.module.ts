@@ -1,3 +1,9 @@
+// Title: app-routing.module.ts
+// Author: Prof. Krasso
+// Date: 15 January 2023
+// Modified By: Patrick Wolff
+// Attribution: WEB450 Live Meetings
+
 import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { AuthGuard } from './auth.guard';

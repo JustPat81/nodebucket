@@ -1,3 +1,9 @@
+// Title: auth.guard.ts
+// Author: Prof. Krasso
+// Date: 15 January 2023
+// Modified By: Patrick Wolff
+// Attribution: WEB450 Live Meetings
+
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Router } from '@angular/router';

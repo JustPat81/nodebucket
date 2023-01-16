@@ -1,3 +1,9 @@
+// Title: employee.service.ts
+// Author: Prof. Krasso
+// Date: 15 January 2023
+// Modified By: Patrick Wolff
+// Attribution: WEB450 Live Meetings
+
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';

@@ -1,3 +1,9 @@
+// Title:  login.component.ts
+// Author: Prof. Krasso
+// Date:   15 January 2023
+// Modified By: Patrick Wolff
+// Attribution: WEB450 Live Meetings
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
