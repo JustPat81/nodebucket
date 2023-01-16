@@ -1,9 +1,10 @@
+import { LoginComponent } from './pages/login/login.component';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { AuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BaseLayoutComponent} from "./shared/base-layout/base-layout.component";
 import {HomeComponent} from "./pages/home/home.component";
-import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
         canActivate: [AuthGuard]
       }
     ]
@@ -22,7 +23,8 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       {
-
+        path: 'login',
+        component: LoginComponent
       }
     ]
   }

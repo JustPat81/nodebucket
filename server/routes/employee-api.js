@@ -19,7 +19,7 @@ router.get('/:empId', async(req, res) => {
       {
         console.log(err);
         res.status(501).send({
-          'err': 'mongoDB server error: ' + err.message
+          'err': config.mongoServerError + ': ' + err.message
         })
       }
       /**

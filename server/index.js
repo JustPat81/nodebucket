@@ -20,7 +20,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 // default server port value.
 const PORT = process.env.PORT || 3000;
 
-const CONN = config.dbConn
+const CONN = config.dbConn;
 
 /**
  * Database connection.
@@ -29,7 +29,7 @@ mongoose.set('strictQuery', false);
 
 mongoose.connect(CONN).then(
   () => {
-    console.log('Connection to the database was successful');
+  console.log('Connection to the database was successful');
   },
   err => {
     console.log(config.mongoServerError + ': ' + err.message);
@@ -42,7 +42,7 @@ mongoose.connection.on('error', err => {
 
 mongoose.connection.on('disconnected', () => {
   console.log('Server disconnected from host (MongoDB Atlas).');
-})
+  })
 
 /**
  * APIS go here
