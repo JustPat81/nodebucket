@@ -1,6 +1,6 @@
 const express = require('express');
 const Employee = require('../models/employee');
-const config = require ('..data/config.json')
+const config = require ('../data/config.json')
 
 const router = express.Router();
 
