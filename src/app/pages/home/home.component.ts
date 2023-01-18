@@ -1,5 +1,5 @@
 // Title:  home.component.ts
-// Author: Prof. Krassp
+// Author: Prof. Krasso
 // Date:   15 January 2023
 // Modified By: Patrick Wolff
 // Attribution: WEB450 Live Session
