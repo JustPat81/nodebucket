@@ -15,13 +15,29 @@
         <!-- logo -->
         <button class="logo" routerLink="/" mat-button>nodebucket</button>
         <button class="navbar-link" mat-button>About</button>
-        <button class="navbar-link" mat-button> Contact Us</button>
+        <button class="navbar-link" routerLink="/contact" mat-button> Contact Us</button>
 
       </div>
 
       <div fxFlex></div>
 
-      <button (click)="logout()" mat-button class="navbar-link">Log Out</button>
+      <!-- profile menu -->
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User profile menu">
+          <mat-icon>perm_identity</mat-icon>
+        </button>
+
+        <mat-menu #profileMenu>
+          <p id="profile-name">Signed in as {{ employeeName }}</p>
+
+          <mat-divider></mat-divider>
+
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
   </nav>
 </header>

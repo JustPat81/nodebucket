@@ -15,10 +15,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./base-layout.component.css']
 })
 export class BaseLayoutComponent implements OnInit {
-
+  employeeName: string;
   year: number = Date.now();
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor(private cookieService: CookieService, private router: Router) {
+    this.employeeName = this.cookieService.get('session_name');
+    this.year = Date.now();
+   }
 
   ngOnInit(): void {
   }
