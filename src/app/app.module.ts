@@ -18,8 +18,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/login/login.component';
-
-
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageModule } from 'primeng/message';
@@ -31,6 +29,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { ContactComponent } from './pages/contact/contact.component';
     AuthLayoutComponent,
     BaseLayoutComponent,
     LoginComponent,
-    ContactComponent
+    ContactComponent,
+    AboutComponent,
+    NotFoundComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +65,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

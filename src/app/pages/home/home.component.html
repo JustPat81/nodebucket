@@ -60,6 +60,7 @@
 
 <!-- list of tasks -->
 <div fxFlex>
+
   <div fxLayout="row" fxLayoutGap="15px" class="task-container" style="margin-top: 20px;">
 
     <!-- todo column -->
@@ -71,20 +72,31 @@
 
         <mat-card-content>
 
-          <div class="task-column">
+          <div
+            fxLayout="column"
+            fxLayoutGap="10px"
+            class="task-column"
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="todo"
+            [cdkDropListConnectedTo]="[doneList]"
+            (cdkDroppedListDropped)="drop($event)" >
 
-            <div *ngFor="let item of todo">
+            <div *ngFor="let item of done" cdkDrag>
 
               <mat-card class="mat-elevation-z0 task-card">
                 <mat-card-content>
                   <div fxLayout="row">
-
-                    <!-- text value -->
                     <div fxFlex>
                       {{ item.text }}
                     </div>
 
                     <!-- code to delete task -->
+                    <div fxFlex fxLayoutAlign="end" style="margin-top: -7px;">
+                      <button mat-icon-button (click)="deleteTask(item._id)">
+                        <mat-icon color="warn">delete</mat-icon>
+                      </button>
+                    </div>
                   </div>
                 </mat-card-content>
               </mat-card>
@@ -105,23 +117,36 @@
 
         <mat-card-content>
 
-          <div class="task-column">
+          <div
+            fxLayout="column"
+            fxLayoutGap="10px"
+            class="task-column"
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="done"
+            [cdkDropListConnectedTo]="[todoList]"
+            (cdkDroppedListDropped)="drop($event)" >
 
-            <div *ngFor="let item of done">
+            <div *ngFor="let item of done" cdkDrag>
 
               <mat-card class="mat-elevation-z0 task-card">
-                <div fxLayout="row">
-                  <div fxLayout>
-                    {{ item.text }}
+                  <div fxLayout="row">
+                    <div fxLayout>
+                      {{ item.text }}
+                    </div>
+
+                    <!-- code to delete task -->
+                    <div fxFlex fxLayoutAlign="end" style="margin-top: -7px">
+                      <button mat-icon-button>
+                        <mat-icon color="warn">delete</mat-icon>
+                      </button>
+                    </div>
                   </div>
-                </div>
               </mat-card>
             </div>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
-
   </div>
-</div>
 </div>
