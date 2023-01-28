@@ -1,3 +1,11 @@
+/**
+ * Title: employee.js
+ * Author: Prof. Krasso
+ * Date: 15 January 2023
+ * Modified By: Patrick Wolff
+ * Description: employee.js file
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const itemSchema = require('./item');

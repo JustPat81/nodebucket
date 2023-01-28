@@ -2,7 +2,7 @@
 // Author: Prof. Krasso
 // Date:   15 January 2023
 // Modified By: Patrick Wolff
-// Attribution: WEB450 Live Session
+// Description: Home.component file for node bucket application
 
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../shared/services/task.service';

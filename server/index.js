@@ -1,4 +1,12 @@
 /**
+ * Title: index.js
+ * Author: Prof. Krasso
+ * Date: 15 January 2023
+ * Modified By: Patrick Wolff
+ * Description: index file for nodebucket application
+ */
+
+/**
  * Require statements
  */
 const express = require('express');
