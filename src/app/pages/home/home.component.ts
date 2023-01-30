@@ -32,8 +32,7 @@ export class HomeComponent implements OnInit {
     task: [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(35)])]
   })
 
-  constructor(private taskService: TaskService, private cookieService: CookieService, private fb: FormBuilder,
-              private dialog: MatDialog) {
+  constructor(private taskService: TaskService, private cookieService: CookieService, private fb: FormBuilder, private dialog: MatDialog) {
 
     this.employee = {} as Employee;
     this.dialogData = {} as DialogData;

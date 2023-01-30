@@ -12,9 +12,6 @@
   <div fxFlex>
   <h1 class="title">
     Welcome to WEB 450's - nodebucket Project <br />
-    <span class="subtitle">
-      Pay close attention to the requirements, double and triple check the files for code attribution, and do not wait until the last minute to begin working on your tasks.
-    </span>
   </h1>
 </div>
 
@@ -80,7 +77,7 @@
             #todoList="cdkDropList"
             [cdkDropListData]="todo"
             [cdkDropListConnectedTo]="[doneList]"
-            (cdkDroppedListDropped)="drop($event)" >
+            (cdkDropListDropped)="drop($event)">
 
             <div *ngFor="let item of done" cdkDrag>
 
@@ -122,10 +119,10 @@
             fxLayoutGap="10px"
             class="task-column"
             cdkDropList
-            #todoList="cdkDropList"
+            #doneList="cdkDropList"
             [cdkDropListData]="done"
             [cdkDropListConnectedTo]="[todoList]"
-            (cdkDroppedListDropped)="drop($event)" >
+            (cdkDropListDropped)="drop($event)">
 
             <div *ngFor="let item of done" cdkDrag>
 
