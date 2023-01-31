@@ -79,7 +79,7 @@
             [cdkDropListConnectedTo]="[doneList]"
             (cdkDropListDropped)="drop($event)">
 
-            <div *ngFor="let item of done" cdkDrag>
+            <div *ngFor="let item of todo" cdkDrag>
 
               <mat-card class="mat-elevation-z0 task-card">
                 <mat-card-content>
@@ -134,7 +134,7 @@
 
                     <!-- code to delete task -->
                     <div fxFlex fxLayoutAlign="end" style="margin-top: -7px">
-                      <button mat-icon-button>
+                      <button mat-icon-button (click)="deleteTask(item._id)">
                         <mat-icon color="warn">delete</mat-icon>
                       </button>
                     </div>
