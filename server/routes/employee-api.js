@@ -9,11 +9,31 @@
 const express = require('express');
 const Employee = require('../models/employee');
 const config = require ('../data/config.json')
-
 const router = express.Router();
 
 /**
  * findEmployeeId
+ * @openapi
+ * /api/employees/{empId}:
+ *  get:
+ *    tags:
+ *      - Employees
+ *    description: API for returning employee by empId
+ *    summary: returns employee document matching empId in params
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        schema:
+ *          type: number
+ *          description: empId to search for
+ *    responses:
+ *      '200':
+ *        description: Employee document
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDB Exception
+ *
  */
 router.get('/:empId', async(req, res) => {
   try
@@ -52,6 +72,27 @@ router.get('/:empId', async(req, res) => {
 
 /**
  * findAllTasks
+ * @openapi
+ * /api/employees/{empId}/tasks:
+ *  get:
+ *    tags:
+ *      - Employees
+ *    description: Gets all tasks for one employee
+ *    summary: returns all tasks for one employee
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        schema:
+ *          type: number
+ *          description: empId to search for
+ *    responses:
+ *      '200':
+ *        description: Employee document
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDB Exception
+ *
  */
 router.get('/:empId/tasks', async(req, res) => {
   try {
@@ -76,6 +117,41 @@ router.get('/:empId/tasks', async(req, res) => {
 
 /**
  * createTask
+ * @openapi
+ * /api/employees/{empId}/tasks:
+ *  post:
+ *    tags:
+ *      - Employees
+ *    description: Creates new task for the todo list
+ *    summary: Creates new task for the todo list
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        schema:
+ *          type: number
+ *          description: empId to search for
+ *    requestBody:
+ *      description: task title
+ *      content:
+ *        application/json:
+ *          schema:
+ *            required:
+ *              - text
+ *              - dueDate
+ *            properties:
+ *              text:
+ *                type: string
+ *              dueDate:
+ *                type: string
+ *                format: date
+ *    responses:
+ *      '200':
+ *        description: Employee document
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDB Exception
+ *
  */
 router.post('/:empId/tasks', async(req, res) => {
   try {
@@ -117,8 +193,55 @@ router.post('/:empId/tasks', async(req, res) => {
 
 /**
  * updateTask
+ * @openapi
+ * /api/employees/{empId}/tasks:
+ *  put:
+ *    tags:
+ *      - Employees
+ *    description: Updates existing tasks
+ *    summary: Updates existing tasks
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        schema:
+ *          type: number
+ *          description: empId to search for
+ *    requestBody:
+ *      description: task title
+ *      content:
+ *        application/json:
+ *          schema:
+ *            required:
+ *              - todo
+ *              - done
+ *            properties:
+ *              todo:
+ *                type: array
+ *                items:
+ *                  properties:
+ *                    text:
+ *                      type: string
+ *                    dueDate:
+ *                      type: string
+ *                      format: date
+ *              done:
+ *                type: array
+ *                items:
+ *                  properties:
+ *                    text:
+ *                      type: string
+ *                    dueDate:
+ *                      type: string
+ *                      format: date
+ *    responses:
+ *      '200':
+ *        description: Employee document
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDB Exception
+ *
  */
-
 router.put('/:empId/tasks', async (req, res) => {
   try {
     Employee.findOne({'empId' : req.params.empId}, function(err, emp) {
@@ -167,6 +290,31 @@ router.put('/:empId/tasks', async (req, res) => {
 
 /**
  * deleteTask
+ * @openapi
+ * /api/employees/{empId}/tasks/{taskId}:
+ *  delete:
+ *    tags:
+ *      - Employees
+ *    description: Delete a task
+ *    summary: Delete a task
+ *    parameters:
+ *      - in: path
+ *        name: empId
+ *        schema:
+ *          type: number
+ *          description: empId to search for
+ *      - in: path
+ *        name: taskId
+ *        type: string
+ *        description: mongoDB _id of task to be deleted
+ *    responses:
+ *      '200':
+ *        description: Employee document
+ *      '500':
+ *        description: Server Exception
+ *      '501':
+ *        description: MongoDB Exception
+ *
  */
 router.delete('/:empId/tasks/:taskId', async(req, res) => {
   try {

@@ -1,0 +1,21 @@
+.aboutUsImg{
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.appName{
+text-align: center;
+padding-right: 100px;
+padding-top: 100px
+}
+
+.aboutApp{
+ text-align: left;
+ padding-right: 100px
+}
+
+.aboutUsImg {
+  min-width: 500px
+}
